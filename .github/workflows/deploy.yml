@@ -25,8 +25,12 @@ jobs:
         run: |
           cp README.md content
           jupyter lite build --contents content --output-dir dist
+        
+      # This command lists all files and directories within the dist directory, including their permissions, sizes, and modification dates.
+      - name: List dist directory contents
+        run: ls -al ./dist
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
